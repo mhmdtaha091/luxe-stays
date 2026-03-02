@@ -1,65 +1,90 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Search, MapPin, Calendar, Users } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      <Navbar />
+      <main className="flex-grow">
+
+        {/* Hero Section */}
+        <section className="relative h-screen w-full flex items-center justify-center">
+          <div className="absolute inset-0 z-0">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/images/villa_1.png"
+              alt="Luxury Villa Infinity Pool"
+              fill
+              priority
+              className="object-cover"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            {/* Elegant dark overlay for better text contrast */}
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+
+          <div className="relative z-10 container mx-auto px-6 text-center mt-12">
+            <h1 className="text-5xl md:text-7xl font-serif text-white mb-6 drop-shadow-lg max-w-4xl mx-auto leading-tight">
+              Curated Escapes for the Discerning Traveler
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 font-light tracking-wide mb-12 drop-shadow-md">
+              Discover unparalleled luxury in the world's most breathtaking destinations.
+            </p>
+
+            {/* Floating Search Bar */}
+            <div className="max-w-4xl mx-auto bg-white rounded-full shadow-2xl p-2 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-200">
+
+              <div className="flex-1 w-full px-6 py-3 flex items-center hover:bg-gray-50 rounded-full transition-colors cursor-pointer">
+                <div className="flex flex-col text-left">
+                  <span className="text-xs font-bold uppercase tracking-wider text-foreground">Location</span>
+                  <input
+                    type="text"
+                    placeholder="Where are you going?"
+                    className="outline-none text-sm text-gray-600 bg-transparent placeholder-gray-400 w-full truncate"
+                  />
+                </div>
+              </div>
+
+              <div className="flex-1 w-full px-6 py-3 flex items-center hover:bg-gray-50 rounded-full transition-colors cursor-pointer">
+                <div className="flex flex-col text-left">
+                  <span className="text-xs font-bold uppercase tracking-wider text-foreground">Dates</span>
+                  <span className="text-sm text-gray-400">Add dates</span>
+                </div>
+              </div>
+
+              <div className="flex-1 w-full px-6 py-3 flex items-center justify-between hover:bg-gray-50 rounded-full transition-colors cursor-pointer">
+                <div className="flex flex-col text-left">
+                  <span className="text-xs font-bold uppercase tracking-wider text-foreground">Guests</span>
+                  <span className="text-sm text-gray-400">Add guests</span>
+                </div>
+
+                <Link href="/listings" className="bg-primary hover:bg-[#d4a317] text-white p-4 rounded-full transition-colors shadow-lg shadow-primary/30 flex-shrink-0">
+                  <Search size={20} strokeWidth={2.5} />
+                </Link>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Destinations (Placeholder for design depth) */}
+        <section className="py-24 bg-background">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-serif mb-4">Discover Extraordinary</h2>
+              <p className="text-secondary-foreground max-w-2xl mx-auto">
+                Explore our hand-picked collection of world-class properties designed for ultimate privacy and comfort.
+              </p>
+            </div>
+            {/* Just a CTA button for now to lead to listings */}
+            <div className="flex justify-center">
+              <Link href="/listings" className="border border-foreground text-foreground px-8 py-4 uppercase tracking-widest text-sm font-medium hover:bg-foreground hover:text-white transition-colors">
+                View All Properties
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
-    </div>
+    </>
   );
 }

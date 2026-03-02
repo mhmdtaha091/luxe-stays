@@ -1,26 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #faf9f6;
+  /* Soft pearl/beige */
+  --foreground: #2d2a26;
+  /* Deep charcoal/taupe */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --primary: #e6b319;
+  /* Soft Gold */
+  --primary-foreground: #ffffff;
+
+  --secondary: #eaddcf;
+  /* Light warm taupe */
+  --secondary-foreground: #4a4238;
+  /* Dark taupe */
+
+  --border: #e6dfd5;
+  --surface: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Keeping the luxurious light theme baseline, but providing a sophisticated dark alternative */
+    --background: #1a1816;
+    --foreground: #f4f0ec;
+
+    --primary: #d4a317;
+    --primary-foreground: #ffffff;
+
+    --secondary: #2d2a26;
+    --secondary-foreground: #eaddcf;
+
+    --border: #36322d;
+    --surface: #22201d;
   }
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  font-family: 'Manrope', sans-serif;
+  letter-spacing: 0.2px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-serif {
+  font-family: 'Noto Serif', serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-panel {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(to right, #d4a317, #f2b90d);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }
